@@ -1,7 +1,7 @@
-require_relative 'log_recorder'
+require_relative 'events_recorder'
 require_relative '../summary_item'
 
-class TotalHitsRecorder < LogRecorder
+class TotalHitsRecorder < EventsRecorder
   def initialize
     @stats = Hash.new { |h, k| h[k] = 0 }
   end

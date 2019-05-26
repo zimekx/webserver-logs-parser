@@ -1,4 +1,4 @@
-require_relative '../../app/recorders/unique_hits_recorder'
+require_relative '../../app/events_recorders/unique_hits_recorder'
 
 describe UniqueHitsRecorder do
   let(:recorder) { described_class.new }

@@ -5,6 +5,9 @@ class FileReader
     @file_path = file_path
   end
 
+  # TODO:
+  # Use faster implementation
+  # https://felipeelias.github.io/ruby/2017/01/02/fast-file-processing-ruby.html
   def each_line
     File.readlines(file_path).each do |line|
       yield line

@@ -1,8 +1,8 @@
-require_relative 'log_recorder'
+require_relative 'events_recorder'
 require_relative '../summary_item'
 require 'set'
 
-class UniqueHitsRecorder < LogRecorder
+class UniqueHitsRecorder < EventsRecorder
   def initialize
     @stats = Hash.new { |h, k| h[k] = Set.new }
   end

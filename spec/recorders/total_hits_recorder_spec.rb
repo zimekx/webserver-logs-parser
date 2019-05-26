@@ -1,4 +1,4 @@
-require_relative '../../app/recorders/total_hits_recorder'
+require_relative '../../app/events_recorders/total_hits_recorder'
 
 describe TotalHitsRecorder do
   let(:recorder) { described_class.new }

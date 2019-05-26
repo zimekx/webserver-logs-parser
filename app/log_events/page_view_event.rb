@@ -1,4 +1,4 @@
-class PageViewEntry
+class PageViewEvent
   LOG_SHAPE = {
     page_path: 0,
     user_ip: 1

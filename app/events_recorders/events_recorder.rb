@@ -1,6 +1,6 @@
-require_relative '../log_entries/page_view_entry'
+require_relative '../log_events/page_view_event'
 
-class LogRecorder
+class EventsRecorder
   def record(*args)
     raise NotImplementedError
   end

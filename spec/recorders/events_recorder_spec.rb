@@ -1,6 +1,6 @@
-require_relative '../../app/recorders/log_recorder'
+require_relative '../../app/events_recorders/events_recorder'
 
-describe LogRecorder do
+describe EventsRecorder do
   let(:recorder) { described_class.new }
 
   describe '#summary' do
@@ -12,7 +12,7 @@ describe LogRecorder do
   end
 
   describe '#record' do
-    subject { recorder.summary }
+    subject { recorder.record }
 
     it 'raises NotImplementedError' do
       expect { subject }.to raise_error(NotImplementedError)
