@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
-puts "Hello my argument: #{ARGV[0]}"
+require_relative 'app/logs_parser'
+
+LogsParser.new(ARGV[0]).run
