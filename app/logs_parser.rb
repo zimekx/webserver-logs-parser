@@ -1,10 +1,10 @@
 require_relative 'file-reader'
-require_relative 'page-views-recorder'
+require_relative 'total-page-views-recorder'
 
 class LogsParser
   def initialize(file_path)
     @file_reader = FileReader.new(file_path)
-    @page_views_recorder = PageViewsRecorder.new
+    @page_views_recorder = TotalPageViewsRecorder.new
   end
 
   def run
@@ -12,9 +12,7 @@ class LogsParser
       page_views_recorder.record(line)
     end
 
-    Array(page_views_recorder.stats).sort_by { |_page, views| -views }.each do |page, views|
-      puts "#{page} #{views} visits"
-    end
+    page_views_recorder.print_stats
   end
 
   private

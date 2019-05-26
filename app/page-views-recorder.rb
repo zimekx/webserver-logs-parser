@@ -1,16 +1,19 @@
 require_relative 'page-view-entry'
 
 class PageViewsRecorder
-  attr_reader :stats
-
   def initialize
-    @stats = Hash.new { |h, k| h[k] = 0 }
+    raise NotImplementedError
   end
 
   def record(line)
-    page_view = PageViewEntry.new(line)
-    stats[page_view.page_path] += 1
-
-    true
+    raise NotImplementedError
   end
+
+  def print_stats
+    raise NotImplementedError
+  end
+
+  private
+
+  attr_reader :stats
 end
