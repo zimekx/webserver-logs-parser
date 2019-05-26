@@ -2,14 +2,9 @@ require_relative '../app/logs_parser'
 require 'tempfile'
 
 describe LogsParser do
-  subject { described_class.new(log_file_name).run }
-  let(:log_file_name) { 'dummy.log' }
-
-  it 'runs' do
-    subject
-  end
-
   describe '#run' do
+    subject { described_class.new(log_file_name).run }
+
     let(:logs) do
       <<-LOGS
 /help_page/1 126.318.035.038
