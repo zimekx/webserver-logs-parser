@@ -1,9 +1,19 @@
-require_relative '../app/logs_parser'
 require 'tempfile'
+
+require_relative '../app/logs_parser'
+require_relative '../app/total-page-views-recorder'
+require_relative '../app/unique-page-views-recorder'
 
 describe LogsParser do
   describe '#run' do
-    subject { described_class.new(log_file_name).run }
+    subject { described_class.new(log_file_name, recorders).run }
+
+    let(:recorders) {
+      [
+        TotalPageViewsRecorder.new,
+        UniquePageViewsRecorder.new
+      ]
+    }
 
     let(:logs) do
       <<-LOGS
@@ -17,7 +27,6 @@ describe LogsParser do
       <<-OUTPUT
 /help_page/1 2 visits
 /about/2 1 visits
-
 /help_page/1 1 unique views
 /about/2 1 unique views
       OUTPUT
