@@ -5,11 +5,11 @@ class PageViewsRecorder
     raise NotImplementedError
   end
 
-  def record(line)
+  def record(page_view)
     raise NotImplementedError
   end
 
-  def print_stats
+  def summary
     raise NotImplementedError
   end
 
