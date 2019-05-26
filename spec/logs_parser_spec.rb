@@ -9,7 +9,7 @@ describe LogsParser do
       <<-LOGS
 /help_page/1 126.318.035.038
 /about/2 444.701.448.104
-/help_page/1 929.398.951.889
+/help_page/1 126.318.035.038
       LOGS
     end
 
@@ -17,6 +17,9 @@ describe LogsParser do
       <<-OUTPUT
 /help_page/1 2 visits
 /about/2 1 visits
+
+/help_page/1 1 unique views
+/about/2 1 unique views
       OUTPUT
     end
 
