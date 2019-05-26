@@ -1,20 +1,23 @@
 require 'tempfile'
 
 require_relative '../app/logs_parser'
-require_relative '../app/total-page-views-recorder'
-require_relative '../app/unique-page-views-recorder'
-require_relative '../app/page-view-entry'
+require_relative '../app/recorders/total_hits_recorder'
+require_relative '../app/recorders/unique_hits_recorder'
+require_relative '../app/formatters/total_visits_formatter'
+require_relative '../app/formatters/unique_views_formatter'
+require_relative '../app/mapping_strategies/page_by_user_ip_strategy'
 
 describe LogsParser do
   describe '#run' do
-    subject { described_class.new(file_reader, page_view_entry_class, recorders).run }
+    subject { described_class.new(file_reader, page_view_entry_class, page_by_user_ip_strategy, recorders).run }
 
     let(:file_reader) { FileReader.new(log_file_path) }
     let(:page_view_entry_class) { PageViewEntry }
+    let(:page_by_user_ip_strategy) { PageByUserIpStrategy }
     let(:recorders) {
       [
-        TotalPageViewsRecorder.new,
-        UniquePageViewsRecorder.new
+        {recorder: TotalHitsRecorder.new, formatter: TotalVisitsFormatter},
+        {recorder: UniqueHitsRecorder.new, formatter: UniqueViewsFormatter}
       ]
     }
 

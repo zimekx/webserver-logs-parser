@@ -1,11 +1,11 @@
-require_relative 'page-view-entry'
+require_relative '../log_entries/page_view_entry'
 
-class PageViewsRecorder
+class LogRecorder
   def initialize
     raise NotImplementedError
   end
 
-  def record(page_view)
+  def record(*args)
     raise NotImplementedError
   end
 
